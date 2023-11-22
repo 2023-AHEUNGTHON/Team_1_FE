@@ -13,7 +13,7 @@ function Navigation() {
       <Navbar bg="light" data-bs-theme="light">
         <Container>
           <Nav className="me-auto">
-            <Link to="/schedule" className="nav-link" style={{ marginRight: '20px' }}>스케줄 등록</Link>
+            <Link to="/main" className="nav-link" style={{ marginRight: '20px' }}>스케줄 등록</Link>
             <Link to="/solution" className="nav-link" style={{ marginRight: '25px' }}>솔루션</Link>
             <Link to="/event" className="nav-link">행사</Link>
           </Nav>
