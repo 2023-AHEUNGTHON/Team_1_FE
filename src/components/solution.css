@@ -6,3 +6,20 @@
     padding: 20px 20px;
     margin-top: 50%;
 }
+
+.slu_btn{
+    text-decoration-line: none;
+    color: white;
+}
+
+.schedule_slu{
+    margin-top: 5%;
+    margin-right: 50%;
+}
+
+.gpt_box{
+    background-color: lightgray;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
