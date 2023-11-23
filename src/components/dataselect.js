@@ -1,104 +1,54 @@
-import App from "../App";
 import React, { useState } from "react";
+import "./dataselect.css";
+function DayButton({ day, onClick, isSelected }) {
+    return (
+        <button
+            onClick={onClick}
+            style={{
+                backgroundColor: isSelected ? "#B43420" : "#F2F2F2",
+                color: isSelected ? "#FFFFFF" : "#AAAAAA",
+                border: "0",
+                margin: "1px",
+            }}
+        >
+            {day}
+        </button>
+    );
+}
 
-function Dataselect() {
+function DayButtons() {
     const [selectedDays, setSelectedDays] = useState([]);
 
-    const handleCheckboxChange = (day) => {
-        setSelectedDays([day]);
+    const handleButtonClick = (day) => {
+        if (selectedDays.includes(day)) {
+            // 이미 선택된 요일을 클릭하면 선택 해제
+            setSelectedDays(
+                selectedDays.filter((selectedDay) => selectedDay !== day)
+            );
+        } else {
+            // 새로운 요일을 선택하면 기존 선택 해제하고 현재 요일만 선택
+            setSelectedDays([day]);
+        }
     };
+
+    const daysOfWeek = ["월", "화", "수", "목", "금", "토", "일"];
 
     return (
         <div>
-            <div>수강 시간</div>
-            <div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="monday"
-                        value="월요일"
-                        onChange={() => handleCheckboxChange("월요일")}
-                        checked={selectedDays.includes("월요일")}
-                    />
-                    <span onClick={() => handleCheckboxChange("월요일")}>
-                        월
-                    </span>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="tuesday"
-                        value="화요일"
-                        onChange={() => handleCheckboxChange("화요일")}
-                        checked={selectedDays.includes("화요일")}
-                    />
-                    <span onClick={() => handleCheckboxChange("화요일")}>
-                        화
-                    </span>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="wednesday"
-                        value="수요일"
-                        onChange={() => handleCheckboxChange("수요일")}
-                        checked={selectedDays.includes("수요일")}
-                    />
-                    <span onClick={() => handleCheckboxChange("수요일")}>
-                        수
-                    </span>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="wednesday"
-                        value="목요일"
-                        onChange={() => handleCheckboxChange("목요일")}
-                        checked={selectedDays.includes("목요일")}
-                    />
-                    <span onClick={() => handleCheckboxChange("수요일")}>
-                        목
-                    </span>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="wednesday"
-                        value="금요일"
-                        onChange={() => handleCheckboxChange("금요일")}
-                        checked={selectedDays.includes("금요일")}
-                    />
-                    <span onClick={() => handleCheckboxChange("금요일")}>
-                        금
-                    </span>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="wednesday"
-                        value="토요일"
-                        onChange={() => handleCheckboxChange("토요일")}
-                        checked={selectedDays.includes("토요일")}
-                    />
-                    <span onClick={() => handleCheckboxChange("토요일")}>
-                        토
-                    </span>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="wednesday"
-                        value="일요일"
-                        onChange={() => handleCheckboxChange("일요일")}
-                        checked={selectedDays.includes("일요일")}
-                    />
-                    <span onClick={() => handleCheckboxChange("일요일")}>
-                        일
-                    </span>
-                </div>
+            <div className="name">수강 시간</div>
+            <div className="week">
+                {daysOfWeek.map((day, index) => (
+                    <div key={index}>
+                        <DayButton
+                            day={day}
+                            onClick={() => handleButtonClick(day)}
+                            isSelected={selectedDays.includes(day)}
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     );
 }
 
-export default Dataselect;
+export default DayButtons;

@@ -1,0 +1,40 @@
+/*timeselect.js */
+.hour_min {
+    display: flex;
+    flex-direction: row;
+}
+.hour_min_box {
+    margin: 2px;
+}
+/*add_schedule.js*/
+.time {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.time_place {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.newlist {
+    display: flex;
+    flex-direction: column;
+}
+.btn_finshed {
+    margin-left: 300px;
+}
+.finshed {
+    display: flex;
+    justify-content: center;
+}
+
+.name {
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    margin-right: 40%;
+}
+.finshed_btn {
+    border-radius: 20px;
+}
