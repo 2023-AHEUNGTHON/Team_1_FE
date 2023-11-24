@@ -1,0 +1,16 @@
+.main_btn {
+    background-color: #fafafa;
+    border: none;
+    border-radius: 20px;
+    padding: 20px 20px;
+    width: 400px;
+    margin: 3%;
+}
+.new_schedule {
+    display: flex;
+    justify-content: space-between;
+}
+.linked {
+    color: black;
+    text-decoration-line: none;
+}
