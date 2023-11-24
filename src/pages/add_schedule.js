@@ -3,6 +3,7 @@ import TimePicker from "../components/timeselect";
 import Dataselect from "../components/dataselect";
 import Finshedbtn from "../components/finshedbtn";
 import { useState } from "react";
+import "../components/timeselect.css";
 
 function Name() {
     const [toDo, setTodo] = useState("");
@@ -24,7 +25,7 @@ function Name() {
     };
     return (
         <div>
-            <div>과목명</div>
+            <div className="name">과목명</div>
             <div>
                 <form onSubmit={onSubmit}>
                     <input
@@ -45,22 +46,38 @@ function Add_schedule() {
     const addNewComponents = () => {
         setAdditionalComponents([
             ...additionalComponents,
-            <div key={additionalComponents.length}>
+            <div key={additionalComponents.length} className="hellonew">
                 <Dataselect />
-                <TimePicker />~<TimePicker />
+                <div className="time_place">
+                    <TimePicker />~<TimePicker />
+                </div>
             </div>,
         ]);
     };
 
     return (
-        <>
+        <main>
             <Name />
-            <Dataselect />
-            <TimePicker />~<TimePicker />
-            {additionalComponents}
-            <button onClick={addNewComponents}>더 입력</button>
+            <div className="info">
+                <div className="day">
+                    <Dataselect />
+                </div>
+                <div className="time_place">
+                    <div className="time">
+                        <TimePicker />~<TimePicker />
+                    </div>
+                </div>
+            </div>
+            <div className="time_place_new">{additionalComponents}</div>
+            <div className="finshed">
+                <div className="btn_finshed">
+                    <button onClick={addNewComponents} className="finshed_btn ">
+                        더 입력
+                    </button>
+                </div>
+            </div>
             <Finshedbtn />
-        </>
+        </main>
     );
 }
 
