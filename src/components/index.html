@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        #gallery{
+            width: 90%;
+            margin:3em auto;
+            display: flex;
+            flex-wrap:wrap;
+        }
+
+        #gallery li{
+            width: 25%;
+            list-style: none;
+        }
+
+        #gallery li img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="gallery"></ul>
+
+    <script src="instafeed.min.js"></script>
+
+    <script type="text/javascript">
+        var feed = new Instafeed({
+        target: 'gallery',
+        template: '<li><a href="{{link}}"><img title="{{caption}}" src="{{image}}" /></a><h4>{{caption}}</h4></li>',
+        accessToken: 'IGQWRPeWpuVUhzTzFBRGY5ZAkJQLU4xQjN2QnFxMjE4RTRjVC1Cd1NmS1lCZA3ZATbnk4UHhkTEV6TGVXQmt3MGEzLXFrUlFzd2labVlSWVh1M1luczctUThYR21lTkhRdmFxTEJuVGhKUTJaWWtnd29kRVNweGZAEZAFkZD'
+        });
+        feed.run();
+    </script>
+</body>
+</html>

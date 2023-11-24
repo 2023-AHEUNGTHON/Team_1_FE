@@ -1,0 +1,16 @@
+#gallery {
+    width: 90%;
+    margin: 3em auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#gallery li {
+    width: 25%;
+    list-style: none;
+}
+
+#gallery li img {
+    width: 200px;
+    height: 200px;
+}
