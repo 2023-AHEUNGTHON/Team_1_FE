@@ -35,7 +35,6 @@ function DayButtons() {
 
     return (
         <div>
-            <div className="name">수강 시간</div>
             <div className="week">
                 {daysOfWeek.map((day, index) => (
                     <div key={index}>

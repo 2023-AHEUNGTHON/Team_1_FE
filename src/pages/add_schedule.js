@@ -2,7 +2,8 @@ import App from "../App";
 import TimePicker from "../components/timeselect";
 import Dataselect from "../components/dataselect";
 import Finshedbtn from "../components/finshedbtn";
-import { useState } from "react";
+import React, { useState } from "react";
+
 import "../components/timeselect.css";
 
 function Name() {
@@ -26,15 +27,18 @@ function Name() {
     return (
         <div>
             <div className="name">과목명</div>
-            <div>
-                <form onSubmit={onSubmit}>
-                    <input
-                        type="text"
-                        placeholder="과목명을 입력하세요"
-                        onChange={onChange}
-                        value={toDo}
-                    ></input>
-                </form>
+            <div className="input_na">
+                <div className="input_name">
+                    <form onSubmit={onSubmit}>
+                        <input
+                            className="name_input"
+                            type="text"
+                            placeholder="과목명을 입력하세요"
+                            onChange={onChange}
+                            value={toDo}
+                        ></input>
+                    </form>
+                </div>
             </div>
         </div>
     );
@@ -58,25 +62,34 @@ function Add_schedule() {
     return (
         <main>
             <Name />
-            <div className="info">
-                <div className="day">
-                    <Dataselect />
-                </div>
-                <div className="time_place">
-                    <div className="time">
-                        <TimePicker />~<TimePicker />
+            <div className="name">수강 시간</div>
+            <div className="info_box">
+                <div className="info">
+                    <div className="info_box_in">
+                        <div className="day">
+                            <Dataselect />
+                        </div>
+                        <div className="time_place">
+                            <div className="time">
+                                <TimePicker />~<TimePicker />
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div className="time_place_new_box">
+                    <div className="time_place_new">{additionalComponents}</div>
+                </div>
             </div>
-            <div className="time_place_new">{additionalComponents}</div>
             <div className="finshed">
                 <div className="btn_finshed">
-                    <button onClick={addNewComponents} className="finshed_btn ">
+                    <button onClick={addNewComponents} className="more_btn ">
                         더 입력
                     </button>
                 </div>
             </div>
-            <Finshedbtn />
+            <div className="btn_finshe">
+                <Finshedbtn />
+            </div>
         </main>
     );
 }
