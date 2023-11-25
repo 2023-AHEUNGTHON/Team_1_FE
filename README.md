@@ -39,8 +39,10 @@ It 직무 관련 행사들을 지원해 줌으로서 학업에 집중하기에 �
 ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)        
 
 ### Development
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=J&logoColor=white)
+
 ![Django](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
+  <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=Django&logoColor=white"/>
 
 ### Communication
 ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
@@ -61,17 +63,5 @@ It 직무 관련 행사들을 지원해 줌으로서 학업에 집중하기에 �
 - 스케줄 확인
 - ChatGPT를 활용한 솔루션
 - IT 행사 정보 제공
-
-
----
-## 아키텍쳐
-
-
-### 디렉토리 구조
-```bash
-├── README.md
-└── package.json
-
-여러분들의 프로젝트 디렉토리 구조를 적어주세요!
 
 ```
