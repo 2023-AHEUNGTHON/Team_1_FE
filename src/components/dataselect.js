@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./dataselect.css";
+
 function DayButton({ day, onClick, isSelected }) {
     return (
         <button
@@ -18,7 +19,9 @@ function DayButton({ day, onClick, isSelected }) {
 
 function DayButtons() {
     const [selectedDays, setSelectedDays] = useState([]);
-
+    {
+        /* 요일 설정 */
+    }
     const handleButtonClick = (day) => {
         if (selectedDays.includes(day)) {
             // 이미 선택된 요일을 클릭하면 선택 해제
@@ -35,6 +38,7 @@ function DayButtons() {
 
     return (
         <div>
+            {/* 전달받은 정보를 표시 */}
             <div className="week">
                 {daysOfWeek.map((day, index) => (
                     <div key={index}>

@@ -1,41 +1,44 @@
-// Event.js
-
-import React, { useEffect } from 'react';
-import InstafeedModule from 'instafeed.js';
-import './event.css'; // Import the CSS file
+import React, { useEffect, useState } from "react";
+import InstafeedModule from "instafeed.js"; // 사용할 예정인 경우만 남겨두기
+import "./event.css"; // Import the CSS file
 
 const Event = () => {
+    const [htmlContent, setHtmlContent] = useState("");
+
     useEffect(() => {
-        const script = document.createElement('script');
-        script.src = '/path/to/instafeed.min.js';
-        script.async = true;
+        // HTML 파일 가져오기
+        fetch("/index.html")
+            .then((response) => response.text())
+            .then((data) => {
+                console.log(data); // 확인용 로그
+                setHtmlContent(data);
+            })
+            .catch((error) => console.error("Error fetching HTML:", error));
 
-        document.body.appendChild(script);
+        // Instafeed 실행 확인
+        console.log("Instafeed is running");
 
-        script.onload = () => {
-            try {
-                const feed = new InstafeedModule({
-                    target: 'gallery',
-                    template: '<li><a href="{{link}}"><img title="{{caption}}" src="{{image}}" /></a><h4>{{caption}}</h4></li>',
-                    accessToken: 'IGQWRPeWpuVUhzTzFBRGY5ZAkJQLU4xQjN2QnFxMjE4RTRjVC1Cd1NmS1lCZA3ZATbnk4UHhkTEV6TGVXQmt3MGEzLXFrUlFzd2labVlSWVh1M1luczctUThYR21lTkhRdmFxTEJuVGhKUTJaWWtnd29kRVNweGZAEZAFkZD'
-                });
-
-                feed.run();
-            } catch (error) {
-                console.error('Error initializing Instafeed:', error);
-            }
-        };
-
-        return () => {
-            document.body.removeChild(script);
-        };
+        // Instafeed 설정 및 실행
+        var feed = new InstafeedModule({
+            target: "gallery",
+            template:
+                '<li><a href="{{link}}"><img title="{{caption}}" src="{{image}}" /></a><h4>{{caption}}</h4></li>',
+            accessToken: "YOUR_INSTAGRAM_ACCESS_TOKEN", // 인스타그램 액세스 토큰을 적어주세요
+        });
+        feed.run();
     }, []);
 
+    // 사용할 예정인 경우만 남겨두기
+    const someFunctionThatUsesInstafeedModule = () => {
+        // do something with InstafeedModule
+    };
+
     return (
-        <>
-            <ul id="gallery"></ul>
-        </>
+        <div>
+            {/* 가져온 HTML을 dangerouslySetInnerHTML을 통해 렌더링 */}
+            <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        </div>
     );
-}
+};
 
 export default Event;

@@ -14,3 +14,12 @@
     color: black;
     text-decoration-line: none;
 }
+
+.schdule_list {
+    display: flex;
+    justify-content: space-between;
+}
+.list_box {
+    margin-left: 20%;
+    width: 300px;
+}

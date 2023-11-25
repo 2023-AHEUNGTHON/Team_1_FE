@@ -9,6 +9,7 @@ import Slu_click from "./components/slu-click";
 import Event from "./components/event";
 import Add_my from "./pages/add_my";
 import Add_homework from "./pages/add_homework";
+import MainSchedule2 from "./pages/main_schedule copy";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/slu_click" element={<Slu_click />} />
                     <Route path="/event" element={<Event />} />
                     <Route path="/add_my" element={<Add_my />} />
+                    <Route path="/copy" element={<MainSchedule2 />} />
                     <Route path="/add_homework" element={<Add_homework />} />
                 </Routes>
             </Router>

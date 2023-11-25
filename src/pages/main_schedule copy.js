@@ -14,7 +14,7 @@ function New(what) {
     );
 }
 
-function MainSchedule() {
+function MainSchedule2() {
     const navigate = useNavigate();
     return (
         <div>
@@ -27,7 +27,15 @@ function MainSchedule() {
                             </div>
                         </Link>
                     </button>
-                    <div className="schdule_list"></div>
+                    <div className="list_box">
+                        <div className="schdule_list">
+                            <div>데이터베이스(가)</div>
+                            <div>
+                                <div>월 12:00~13:15</div>
+                                <div>목 12:00~13:15</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
@@ -55,4 +63,4 @@ function MainSchedule() {
     );
 }
 
-export default MainSchedule;
+export default MainSchedule2;

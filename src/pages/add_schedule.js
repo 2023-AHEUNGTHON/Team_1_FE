@@ -93,7 +93,7 @@ function Add_schedule() {
         const scheduleData = { ...scontent };
 
         // MainSchedule 컴포넌트로 정보 전달
-        navigate("/ㅡ", { state: { scheduleData } });
+        navigate("/copy", { state: { scheduleData } });
     };
 
     return (
