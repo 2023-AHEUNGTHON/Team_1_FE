@@ -14,3 +14,14 @@
     width: 200px;
     height: 200px;
 }
+
+.ip {
+    background-color: lightgray;
+    margin: 20px 20px;
+    font-size: x-large;
+    border-radius: 10px;
+}
+
+.p {
+    font-size: large;
+}

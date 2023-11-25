@@ -1,25 +1,39 @@
-.button-slu{
-    background-color: #D87C76;
+.button-slu {
+    background-color: #d87c76;
     border: none;
     border-radius: 20px;
     font-size: 25px;
     padding: 20px 20px;
-    margin-top: 50%;
+    margin-top: 70% !important;
+    margin-left: 23%;
 }
 
-.slu_btn{
+.slu_btn {
     text-decoration-line: none;
     color: white;
 }
 
-.schedule_slu{
+.slu_click {
+    border-radius: 20px; /* 원하는 둥근 정도로 조절할 수 있습니다. */
+    padding: 20px; /* 내용 주위에 여백을 추가합니다. */
+    background-color: lightgray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과를 추가합니다. */
+    margin: 20px 20px;
+}
+
+.schedule_slu {
     margin-top: 5%;
     margin-right: 50%;
 }
 
-.gpt_box{
+.gpt_box {
     background-color: lightgray;
     margin-top: 5%;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.slu_click h1,
+p {
+    text-align: left;
 }
