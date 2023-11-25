@@ -6,6 +6,7 @@ import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import "../components/timeselect.css";
+import "../components/add_homework.css";
 
 function Name({ setscontent }) {
     const [toDo, setTodo] = useState("");
@@ -24,7 +25,7 @@ function Name({ setscontent }) {
             if (toDo === "") {
                 return;
             }
-            setTodo((currentArray) => [toDo, ...currentArray]);
+
             setTodo("");
         }
     };
@@ -33,25 +34,22 @@ function Name({ setscontent }) {
     };
     return (
         <div>
-            <div className="name">과목명</div>
+            <div className="name">솔루션 받고 싶은 과제명을 입력해주세요!</div>
             <div className="input_na">
                 <div className="input_name">
-                    <form onSubmit={onSubmit}>
-                        <input
-                            className="name_input"
-                            type="text"
-                            placeholder="과목명을 입력하세요"
-                            onChange={getvalue}
-                            name="title"
-                        ></input>
-                    </form>
+                    <input
+                        className="name_input"
+                        type="text"
+                        placeholder="과제명을 입력해주세요"
+                        name="title"
+                    ></input>
                 </div>
             </div>
         </div>
     );
 }
 
-function Add_schedule() {
+function Add_homework() {
     const [additionalComponents, setAdditionalComponents] = useState([]);
 
     const [scontent, setscontent] = useState({
@@ -93,22 +91,35 @@ function Add_schedule() {
         const scheduleData = { ...scontent };
 
         // MainSchedule 컴포넌트로 정보 전달
-        navigate("/ㅡ", { state: { scheduleData } });
+        navigate("/main", { state: { scheduleData } });
     };
 
     return (
         <main>
             <Name setscontent={setscontent} />
-            <div className="name">수강 시간</div>
+            <div className="name">과제 마감 일정</div>
             <div className="info_box">
                 <div className="info">
                     <div className="info_box_in">
                         <div className="day">
-                            <Dataselect />
+                            <div className="year">
+                                <input className="date_input"></input>년
+                            </div>
+                            <div className="month">
+                                <input className="date_input"></input>월
+                            </div>
+                            <div className="day">
+                                <input className="date_input"></input>일
+                            </div>
                         </div>
-                        <div className="time_place">
-                            <div className="time">
-                                <TimePicker />~<TimePicker />
+                        <div className="info_box_in">
+                            <div className="day">
+                                <Dataselect />
+                            </div>
+                            <div className="time_place">
+                                <div className="time">
+                                    <TimePicker />~<TimePicker />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -117,20 +128,14 @@ function Add_schedule() {
                     <div className="time_place_new">{additionalComponents}</div>
                 </div>
             </div>
-            <div className="finshed">
-                <div className="btn_finshed">
-                    <button onClick={addNewComponents} className="more_btn ">
-                        더 입력
-                    </button>
-                </div>
-            </div>
+            <div className="finshed"></div>
             <div className="btn_finshe">
                 <button onClick={onSubmit} className="more_btn">
-                    완료
+                    등록완료
                 </button>
             </div>
         </main>
     );
 }
 
-export default Add_schedule;
+export default Add_homework;
