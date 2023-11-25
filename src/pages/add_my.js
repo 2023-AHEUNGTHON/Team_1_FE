@@ -3,6 +3,7 @@ import TimePicker from "../components/timeselect";
 import Dataselect from "../components/dataselect";
 import Finshedbtn from "../components/finshedbtn";
 import React, { useState } from "react";
+import Type from "../components/typechose";
 
 import { useNavigate } from "react-router-dom";
 import "../components/timeselect.css";
@@ -24,7 +25,7 @@ function Name({ setscontent }) {
             if (toDo === "") {
                 return;
             }
-            setTodo((currentArray) => [toDo, ...currentArray]);
+
             setTodo("");
         }
     };
@@ -33,25 +34,22 @@ function Name({ setscontent }) {
     };
     return (
         <div>
-            <div className="name">과목명</div>
+            <div className="name">스케줄명을 입력해주세요</div>
             <div className="input_na">
                 <div className="input_name">
-                    <form onSubmit={onSubmit}>
-                        <input
-                            className="name_input"
-                            type="text"
-                            placeholder="과목명을 입력하세요"
-                            onChange={getvalue}
-                            name="title"
-                        ></input>
-                    </form>
+                    <input
+                        className="name_input"
+                        type="text"
+                        placeholder="스케줄명을 입력해주세요"
+                        name="title"
+                    ></input>
                 </div>
             </div>
         </div>
     );
 }
 
-function Add_schedule() {
+function Add_my() {
     const [additionalComponents, setAdditionalComponents] = useState([]);
 
     const [scontent, setscontent] = useState({
@@ -93,13 +91,17 @@ function Add_schedule() {
         const scheduleData = { ...scontent };
 
         // MainSchedule 컴포넌트로 정보 전달
-        navigate("/ㅡ", { state: { scheduleData } });
+        navigate("/main", { state: { scheduleData } });
     };
 
     return (
         <main>
+            <div className="types">
+                <Type />
+            </div>
             <Name setscontent={setscontent} />
-            <div className="name">수강 시간</div>
+            <div className="choose"></div>
+            <div className="name">스케줄 시간</div>
             <div className="info_box">
                 <div className="info">
                     <div className="info_box_in">
@@ -117,20 +119,14 @@ function Add_schedule() {
                     <div className="time_place_new">{additionalComponents}</div>
                 </div>
             </div>
-            <div className="finshed">
-                <div className="btn_finshed">
-                    <button onClick={addNewComponents} className="more_btn ">
-                        더 입력
-                    </button>
-                </div>
-            </div>
+            <div className="finshed"></div>
             <div className="btn_finshe">
                 <button onClick={onSubmit} className="more_btn">
-                    완료
+                    등록 완료
                 </button>
             </div>
         </main>
     );
 }
 
-export default Add_schedule;
+export default Add_my;

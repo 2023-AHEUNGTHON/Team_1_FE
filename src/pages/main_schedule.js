@@ -1,5 +1,5 @@
 import App from "../App";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, useLocation } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 import Add_schedule from "./add_schedule";
@@ -15,7 +15,8 @@ function New(what) {
 }
 
 function MainSchedule() {
-    const navigate = useNavigate();
+    const location = useLocation();
+    const scheduleData = location.state ? location.state.scheduleData : null;
     return (
         <div>
             <div>
@@ -27,12 +28,21 @@ function MainSchedule() {
                             </div>
                         </Link>
                     </button>
-                    <div className="schdule_list"></div>
+                    <div className="schdule_list">
+                        {/* 전달받은 정보를 표시 */}
+                        {scheduleData && (
+                            <div>
+                                <h3>{scheduleData.title}</h3>
+                                <p>{scheduleData.content}</p>
+                                {/* 추가적인 정보들도 필요하다면 여기에 추가 */}
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 <div>
                     <button className="main_btn">
-                        <Link to="/personal" className="linked">
+                        <Link to="/add_my" className="linked">
                             <div>
                                 <New name="개인 일정 등록" />
                             </div>
@@ -42,7 +52,7 @@ function MainSchedule() {
                 </div>
                 <div>
                     <button className="main_btn">
-                        <Link to="/assignment" className="linked">
+                        <Link to="/add_homework" className="linked">
                             <div>
                                 <New name="과제 일정 등록" />
                             </div>
