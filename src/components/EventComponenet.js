@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Event = () => {
+const EventComponent = () => {
   useEffect(() => {
     // Instafeed.js를 사용하는 경우, 이 부분에 로직을 포함시킬 수 있습니다.
     const Instafeed = require('instafeed.js'); // NPM 패키지로 사용하는 경우
@@ -40,4 +40,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default EventComponent;
